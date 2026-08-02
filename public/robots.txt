@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://netshield.io/sitemap.xml

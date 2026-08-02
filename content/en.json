@@ -1,0 +1,19 @@
+{
+  "home": {
+    "title": "NetShield",
+    "headline": "Enterprise Network Security, Simplified",
+    "subheadline": "Deploy, monitor, and protect your infrastructure in minutes — not months.",
+    "cta_primary": "Get Started",
+    "cta_secondary": "Read the Docs"
+  },
+  "nav": {
+    "features": "Features",
+    "pricing": "Pricing",
+    "docs": "Docs",
+    "support": "Support"
+  },
+  "footer": {
+    "tagline": "Network security built for modern teams.",
+    "copyright": "© 2026 NetShield. All rights reserved."
+  }
+}

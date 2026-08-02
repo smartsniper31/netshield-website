@@ -1,0 +1,19 @@
+{
+  "home": {
+    "title": "NetShield",
+    "headline": "Sécurité réseau d'entreprise, simplifiée",
+    "subheadline": "Déployez, surveillez et protégez votre infrastructure en quelques minutes — pas en plusieurs mois.",
+    "cta_primary": "Démarrer",
+    "cta_secondary": "Lire la documentation"
+  },
+  "nav": {
+    "features": "Fonctionnalités",
+    "pricing": "Tarifs",
+    "docs": "Documentation",
+    "support": "Assistance"
+  },
+  "footer": {
+    "tagline": "La sécurité réseau conçue pour les équipes modernes.",
+    "copyright": "© 2026 NetShield. Tous droits réservés."
+  }
+}
