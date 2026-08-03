@@ -65,9 +65,9 @@
       },
       {
         "icon": "ScanSearch",
-        "title": "Détection de processus par mots-clés",
-        "body": "L'agent analyse les processus en cours d'exécution et les compare à une liste configurable de motifs de noms suspects — familles de ransomware, mineurs de cryptomonnaie et autres menaces connues. La détection fonctionne par correspondance de motifs : rapide, transparente et entièrement auditable.",
-        "detail": "Vous contrôlez la liste de mots-clés. Aucun modèle de scoring opaque."
+        "title": "Détection de processus par motifs",
+        "body": "L'agent analyse les processus en cours d'exécution et les compare à un ensemble de motifs de noms intégrés couvrant les familles de ransomware et mineurs de cryptomonnaie les plus répandus. La détection fonctionne par correspondance de motifs : rapide, transparente et entièrement auditable.",
+        "detail": "Les motifs de détection sont définis dans l'agent. La personnalisation de la liste de mots-clés n'est pas encore supportée."
       },
       {
         "icon": "LayoutDashboard",
@@ -115,7 +115,7 @@
         "number": "04",
         "icon": "ShieldAlert",
         "title": "Une règle se déclenche — NetShield agit",
-        "body": "Quand un processus correspond à une règle de détection, l'agent l'arrête et, si la politique l'exige, isole la machine du réseau (une exception maintient la connexion de gestion ouverte). L'événement est journalisé et votre équipe est notifiée immédiatement depuis le dashboard."
+        "body": "Quand un processus correspond à une règle de détection, l'agent l'arrête et, si la politique l'exige, isole la machine du réseau (une exception maintient la connexion de gestion ouverte). L'événement est journalisé immédiatement et visible en temps réel dans le dashboard."
       }
     ],
     "arch_title": "Architecture en un coup d'œil",

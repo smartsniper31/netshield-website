@@ -65,9 +65,9 @@
       },
       {
         "icon": "ScanSearch",
-        "title": "Keyword-based process detection",
-        "body": "The agent scans running processes against a configurable list of suspicious name patterns — ransomware families, crypto-miners, and other known threats. Detection is pattern-matching: fast, transparent, and fully auditable.",
-        "detail": "You control the keyword list. No opaque scoring model."
+        "title": "Pattern-based process detection",
+        "body": "The agent scans running processes against a built-in set of name patterns covering known ransomware families and crypto-miners. Detection is straightforward pattern-matching: fast, transparent, and fully auditable — no opaque scoring model.",
+        "detail": "Detection patterns are defined in the agent. Custom keyword lists are not yet supported."
       },
       {
         "icon": "LayoutDashboard",
@@ -115,7 +115,7 @@
         "number": "04",
         "icon": "ShieldAlert",
         "title": "A rule fires — NetShield acts",
-        "body": "When a process matches a detection rule, the agent terminates it and, if the policy requires it, isolates the machine from the network (a single exception keeps the management connection open). The event is logged and your team is notified immediately from the dashboard."
+        "body": "When a process matches a detection rule, the agent terminates it and, if the policy requires it, isolates the machine from the network (a single exception keeps the management connection open). The event is logged immediately and visible in real time on the dashboard."
       }
     ],
     "arch_title": "Architecture at a glance",
