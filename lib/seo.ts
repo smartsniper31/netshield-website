@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import type { Locale } from "@/lib/i18n";
 import type { Dictionary } from "@/lib/i18n";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://netshield.io";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://netshield-website.vercel.app";
 
 /**
  * Build fully-populated Metadata for the homepage.
@@ -70,7 +70,7 @@ export function buildPageMetadata(
   const siteName = dict.meta.site_name;
   const title = `${pageTitleSuffix} — ${siteName}`;
   const ogLocale = dict.meta.og_locale;
-  const canonicalUrl = `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://netshield.io"}/${locale}`;
+  const canonicalUrl = `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://netshield-website.vercel.app"}/${locale}`;
 
   return {
     title,

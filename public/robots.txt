@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://netshield.io/sitemap.xml
+Sitemap: https://netshield-website.vercel.app/sitemap.xml
