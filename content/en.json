@@ -51,8 +51,98 @@
     "cta_section_title": "Ready to protect your fleet?",
     "cta_section_body": "Start with a free tier — no credit card required. Upgrade when you need more."
   },
+  "features": {
+    "meta_title": "Features",
+    "meta_description": "Network isolation under 500ms, keyword-based process detection, centralised dashboard with multi-agent management and tiered licensing — all the capabilities NetShield brings to your security team.",
+    "headline": "Everything your security team needs to contain threats fast.",
+    "subheadline": "NetShield combines a lightweight cross-platform agent with a centralised management server so your team can detect, isolate, and respond — without leaving the dashboard.",
+    "cards": [
+      {
+        "icon": "Network",
+        "title": "Automatic network isolation",
+        "body": "When a containment rule fires, the agent cuts the machine off from the network in under 500 ms. A single exception is preserved: the connection to the management server, so the agent remains controllable and reversible at any time.",
+        "platform": "Windows · Linux · macOS"
+      },
+      {
+        "icon": "ScanSearch",
+        "title": "Keyword-based process detection",
+        "body": "The agent scans running processes against a configurable list of suspicious name patterns — ransomware families, crypto-miners, and other known threats. Detection is pattern-matching: fast, transparent, and fully auditable.",
+        "detail": "You control the keyword list. No opaque scoring model."
+      },
+      {
+        "icon": "LayoutDashboard",
+        "title": "Centralised dashboard",
+        "body": "All agents report to a single management server. From the dashboard you can view live status, trigger manual isolation, release quarantined machines, and review the full event log.",
+        "detail": "Authenticated access. Multi-agent fleet management from one interface."
+      },
+      {
+        "icon": "Layers",
+        "title": "Tiered licensing",
+        "body": "NetShield is available in several tiers scaled to the number of agents you need. Start small and scale up as your fleet grows — no vendor lock-in.",
+        "detail": "See the Pricing page for current tier details."
+      }
+    ],
+    "cta_title": "Want to see it in action?",
+    "cta_body": "Follow the step-by-step guide to understand how the agent, the server, and the dashboard work together.",
+    "cta_how": "How it works",
+    "cta_pricing": "See Pricing"
+  },
+  "how_it_works": {
+    "meta_title": "How It Works",
+    "meta_description": "From licence activation to real-time containment: a step-by-step look at how NetShield's agent, management server, and dashboard work together to protect your fleet.",
+    "headline": "From install to containment in four steps.",
+    "subheadline": "NetShield is built around a lightweight agent that runs on each endpoint and a central management server your team controls. Here is the complete flow.",
+    "steps": [
+      {
+        "number": "01",
+        "icon": "KeyRound",
+        "title": "Activate your licence",
+        "body": "After purchase, you receive a licence key. Entering it on the management server unlocks the number of agents your plan allows and enables the dashboard."
+      },
+      {
+        "number": "02",
+        "icon": "Download",
+        "title": "Install the agent on each endpoint",
+        "body": "The agent is a single binary — no kernel module, no reboot. Deploy it on Windows, Linux, or macOS machines. Each agent registers with the management server on first start and appears in the dashboard within seconds."
+      },
+      {
+        "number": "03",
+        "icon": "Wifi",
+        "title": "The agent stays connected",
+        "body": "Each agent maintains a persistent connection to the management server. This real-time channel lets the server push commands — isolation, process termination, policy updates — and receive events back from the endpoint."
+      },
+      {
+        "number": "04",
+        "icon": "ShieldAlert",
+        "title": "A rule fires — NetShield acts",
+        "body": "When a process matches a detection rule, the agent terminates it and, if the policy requires it, isolates the machine from the network (a single exception keeps the management connection open). The event is logged and your team is notified immediately from the dashboard."
+      }
+    ],
+    "arch_title": "Architecture at a glance",
+    "arch_items": [
+      {
+        "icon": "Monitor",
+        "label": "Endpoint agent",
+        "detail": "Lightweight binary on each machine. Monitors processes, enforces isolation rules, reports events."
+      },
+      {
+        "icon": "Server",
+        "label": "Management server",
+        "detail": "Central coordination point. Holds policies, licence state, event log. Communicates with agents in real time."
+      },
+      {
+        "icon": "LayoutDashboard",
+        "label": "Dashboard",
+        "detail": "Web interface for your security team. Live fleet view, manual controls, full audit log."
+      }
+    ],
+    "cta_title": "Ready to get started?",
+    "cta_features": "See all features",
+    "cta_pricing": "See Pricing"
+  },
   "nav": {
     "features": "Features",
+    "how_it_works": "How It Works",
     "pricing": "Pricing",
     "docs": "Docs",
     "support": "Support"

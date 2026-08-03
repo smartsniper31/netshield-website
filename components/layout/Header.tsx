@@ -28,6 +28,9 @@ export function Header({ locale, dict }: HeaderProps) {
           <Link href={`/${locale}/features`} className="hover:text-foreground transition-colors">
             {dict.nav.features}
           </Link>
+          <Link href={`/${locale}/how-it-works`} className="hover:text-foreground transition-colors">
+            {dict.nav.how_it_works}
+          </Link>
           <Link href={`/${locale}/pricing`} className="hover:text-foreground transition-colors">
             {dict.nav.pricing}
           </Link>

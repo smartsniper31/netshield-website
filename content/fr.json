@@ -51,8 +51,98 @@
     "cta_section_title": "Prêt à protéger votre parc ?",
     "cta_section_body": "Commencez avec un accès gratuit — sans carte bancaire. Passez à un plan supérieur quand vous en avez besoin."
   },
+  "features": {
+    "meta_title": "Fonctionnalités",
+    "meta_description": "Isolation réseau en moins de 500 ms, détection de processus par mots-clés, dashboard centralisé avec gestion multi-agents et licences par paliers — toutes les capacités de NetShield.",
+    "headline": "Tout ce dont votre équipe sécurité a besoin pour contenir les menaces rapidement.",
+    "subheadline": "NetShield combine un agent léger multiplateforme avec un serveur de gestion centralisé pour que votre équipe puisse détecter, isoler et répondre — sans quitter le dashboard.",
+    "cards": [
+      {
+        "icon": "Network",
+        "title": "Isolation réseau automatique",
+        "body": "Quand une règle de confinement se déclenche, l'agent coupe la machine du réseau en moins de 500 ms. Une seule exception est préservée : la connexion au serveur de gestion, qui reste ouverte pour que l'agent soit toujours contrôlable et réversible.",
+        "platform": "Windows · Linux · macOS"
+      },
+      {
+        "icon": "ScanSearch",
+        "title": "Détection de processus par mots-clés",
+        "body": "L'agent analyse les processus en cours d'exécution et les compare à une liste configurable de motifs de noms suspects — familles de ransomware, mineurs de cryptomonnaie et autres menaces connues. La détection fonctionne par correspondance de motifs : rapide, transparente et entièrement auditable.",
+        "detail": "Vous contrôlez la liste de mots-clés. Aucun modèle de scoring opaque."
+      },
+      {
+        "icon": "LayoutDashboard",
+        "title": "Dashboard centralisé",
+        "body": "Tous les agents remontent au même serveur de gestion. Depuis le dashboard, visualisez l'état en temps réel, déclenchez une isolation manuelle, libérez une machine en quarantaine et consultez l'intégralité du journal d'événements.",
+        "detail": "Accès authentifié. Gestion multi-agents depuis une seule interface."
+      },
+      {
+        "icon": "Layers",
+        "title": "Licences par paliers",
+        "body": "NetShield est disponible en plusieurs formules adaptées au nombre d'agents dont vous avez besoin. Commencez avec un petit parc et évoluez à votre rythme — sans engagement de fournisseur.",
+        "detail": "Consultez la page Tarifs pour les détails des formules actuelles."
+      }
+    ],
+    "cta_title": "Vous voulez voir comment ça fonctionne ?",
+    "cta_body": "Suivez le guide étape par étape pour comprendre comment l'agent, le serveur et le dashboard travaillent ensemble.",
+    "cta_how": "Comment ça fonctionne",
+    "cta_pricing": "Voir les tarifs"
+  },
+  "how_it_works": {
+    "meta_title": "Comment ça fonctionne",
+    "meta_description": "De l'activation de la licence au confinement en temps réel : comment l'agent, le serveur de gestion et le dashboard NetShield coopèrent pour protéger votre parc.",
+    "headline": "De l'installation au confinement en quatre étapes.",
+    "subheadline": "NetShield repose sur un agent léger déployé sur chaque endpoint et un serveur de gestion central contrôlé par votre équipe. Voici le flux complet.",
+    "steps": [
+      {
+        "number": "01",
+        "icon": "KeyRound",
+        "title": "Activez votre licence",
+        "body": "Après l'achat, vous recevez une clé de licence. En la saisissant sur le serveur de gestion, vous débloquez le nombre d'agents prévu par votre formule et activez le dashboard."
+      },
+      {
+        "number": "02",
+        "icon": "Download",
+        "title": "Installez l'agent sur chaque endpoint",
+        "body": "L'agent est un binaire unique — pas de module noyau, pas de redémarrage. Déployez-le sur des machines Windows, Linux ou macOS. Chaque agent s'enregistre auprès du serveur de gestion au premier démarrage et apparaît dans le dashboard en quelques secondes."
+      },
+      {
+        "number": "03",
+        "icon": "Wifi",
+        "title": "L'agent reste connecté",
+        "body": "Chaque agent maintient une connexion persistante avec le serveur de gestion. Ce canal temps réel permet au serveur d'envoyer des commandes — isolation, arrêt de processus, mise à jour des politiques — et de recevoir les événements en retour."
+      },
+      {
+        "number": "04",
+        "icon": "ShieldAlert",
+        "title": "Une règle se déclenche — NetShield agit",
+        "body": "Quand un processus correspond à une règle de détection, l'agent l'arrête et, si la politique l'exige, isole la machine du réseau (une exception maintient la connexion de gestion ouverte). L'événement est journalisé et votre équipe est notifiée immédiatement depuis le dashboard."
+      }
+    ],
+    "arch_title": "Architecture en un coup d'œil",
+    "arch_items": [
+      {
+        "icon": "Monitor",
+        "label": "Agent sur l'endpoint",
+        "detail": "Binaire léger sur chaque machine. Surveille les processus, applique les règles d'isolation, remonte les événements."
+      },
+      {
+        "icon": "Server",
+        "label": "Serveur de gestion",
+        "detail": "Point de coordination central. Stocke les politiques, l'état de la licence, le journal d'événements. Communique avec les agents en temps réel."
+      },
+      {
+        "icon": "LayoutDashboard",
+        "label": "Dashboard",
+        "detail": "Interface web pour votre équipe sécurité. Vue du parc en direct, contrôles manuels, journal d'audit complet."
+      }
+    ],
+    "cta_title": "Prêt à commencer ?",
+    "cta_features": "Voir toutes les fonctionnalités",
+    "cta_pricing": "Voir les tarifs"
+  },
   "nav": {
     "features": "Fonctionnalités",
+    "how_it_works": "Comment ça fonctionne",
     "pricing": "Tarifs",
     "docs": "Documentation",
     "support": "Assistance"
