@@ -1,10 +1,55 @@
 {
+  "meta": {
+    "home_title": "NetShield — Network Isolation & Threat Containment",
+    "home_description": "NetShield automatically isolates compromised endpoints and terminates suspicious processes across your fleet — before threats spread. Lightweight agent, zero disruption.",
+    "og_locale": "en_US",
+    "site_name": "NetShield"
+  },
   "home": {
     "title": "NetShield",
-    "headline": "Enterprise Network Security, Simplified",
-    "subheadline": "Deploy, monitor, and protect your infrastructure in minutes — not months.",
-    "cta_primary": "Get Started",
-    "cta_secondary": "Read the Docs"
+    "headline": "Contain threats before they spread.",
+    "subheadline": "NetShield automatically isolates compromised machines and shuts down suspicious processes across your entire fleet — in seconds, not hours.",
+    "cta_primary": "See Pricing",
+    "cta_secondary": "Read the Docs",
+    "hero_badge": "Autonomous threat containment",
+    "benefits_title": "Why security teams trust NetShield",
+    "benefits": [
+      {
+        "icon": "ShieldCheck",
+        "title": "Instant network isolation",
+        "body": "Cut off a compromised machine from the rest of your network in under two seconds — without touching the machine physically or waiting for a ticket."
+      },
+      {
+        "icon": "Zap",
+        "title": "Automatic process termination",
+        "body": "Suspicious processes are identified and terminated the moment they cross your defined thresholds. No manual intervention required."
+      },
+      {
+        "icon": "Eye",
+        "title": "Full audit trail",
+        "body": "Every isolation event, process kill, and policy change is logged with timestamp, machine ID, and triggering rule — ready for compliance review."
+      }
+    ],
+    "how_title": "How it works",
+    "how_steps": [
+      {
+        "number": "01",
+        "title": "Deploy the agent",
+        "body": "A single lightweight agent installs on each endpoint in minutes. No kernel modules, no reboot required."
+      },
+      {
+        "number": "02",
+        "title": "Define your policies",
+        "body": "Set the network behaviour and process thresholds that trigger containment. Start from a template or write your own rules."
+      },
+      {
+        "number": "03",
+        "title": "NetShield acts automatically",
+        "body": "When a rule fires, NetShield isolates the machine and terminates the offending processes — then notifies your team with a full incident report."
+      }
+    ],
+    "cta_section_title": "Ready to protect your fleet?",
+    "cta_section_body": "Start with a free tier — no credit card required. Upgrade when you need more."
   },
   "nav": {
     "features": "Features",

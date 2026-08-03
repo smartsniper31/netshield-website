@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { getDictionary, locales, type Locale } from "@/lib/i18n";
+import { buildHomeMetadata } from "@/lib/seo";
 
 interface LocaleLayoutProps {
   children: React.ReactNode;
@@ -20,10 +21,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const dict = getDictionary(locale as Locale);
-  return {
-    title: dict.home.title,
-    description: dict.home.subheadline,
-  };
+  return buildHomeMetadata(locale as Locale, dict);
 }
 
 export default async function LocaleLayout({

@@ -1,10 +1,55 @@
 {
+  "meta": {
+    "home_title": "NetShield — Isolation réseau et confinement des menaces",
+    "home_description": "NetShield isole automatiquement les machines compromises et stoppe les processus suspects sur votre parc — avant que la menace ne se propage. Agent léger, zéro interruption.",
+    "og_locale": "fr_FR",
+    "site_name": "NetShield"
+  },
   "home": {
     "title": "NetShield",
-    "headline": "Sécurité réseau d'entreprise, simplifiée",
-    "subheadline": "Déployez, surveillez et protégez votre infrastructure en quelques minutes — pas en plusieurs mois.",
-    "cta_primary": "Démarrer",
-    "cta_secondary": "Lire la documentation"
+    "headline": "Confinement des menaces avant qu'elles ne se propagent.",
+    "subheadline": "NetShield isole automatiquement les machines compromises et arrête les processus suspects sur l'ensemble de votre parc — en quelques secondes, pas en plusieurs heures.",
+    "cta_primary": "Voir les tarifs",
+    "cta_secondary": "Lire la documentation",
+    "hero_badge": "Confinement autonome des menaces",
+    "benefits_title": "Pourquoi les équipes sécurité font confiance à NetShield",
+    "benefits": [
+      {
+        "icon": "ShieldCheck",
+        "title": "Isolation réseau instantanée",
+        "body": "Coupez une machine compromise du reste de votre réseau en moins de deux secondes — sans intervention physique ni ticket d'assistance."
+      },
+      {
+        "icon": "Zap",
+        "title": "Arrêt automatique des processus",
+        "body": "Les processus suspects sont identifiés et arrêtés dès qu'ils dépassent vos seuils. Aucune intervention manuelle requise."
+      },
+      {
+        "icon": "Eye",
+        "title": "Traçabilité complète",
+        "body": "Chaque isolation, arrêt de processus et changement de politique est journalisé avec horodatage, identifiant machine et règle déclenchante — prêt pour vos audits de conformité."
+      }
+    ],
+    "how_title": "Comment ça fonctionne",
+    "how_steps": [
+      {
+        "number": "01",
+        "title": "Déployez l'agent",
+        "body": "Un agent léger s'installe sur chaque endpoint en quelques minutes. Pas de module noyau, pas de redémarrage requis."
+      },
+      {
+        "number": "02",
+        "title": "Définissez vos politiques",
+        "body": "Configurez les comportements réseau et les seuils de processus qui déclenchent le confinement. Partez d'un modèle ou écrivez vos propres règles."
+      },
+      {
+        "number": "03",
+        "title": "NetShield agit automatiquement",
+        "body": "Quand une règle se déclenche, NetShield isole la machine et arrête les processus concernés — puis notifie votre équipe avec un rapport d'incident complet."
+      }
+    ],
+    "cta_section_title": "Prêt à protéger votre parc ?",
+    "cta_section_body": "Commencez avec un accès gratuit — sans carte bancaire. Passez à un plan supérieur quand vous en avez besoin."
   },
   "nav": {
     "features": "Fonctionnalités",
