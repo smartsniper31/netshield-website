@@ -204,6 +204,174 @@
     "cta_body": "Reach out via the support page.",
     "cta_support": "Contact Support"
   },
+  "docs": {
+    "meta_title": "Documentation",
+    "meta_description": "Everything you need to install and configure NetShield: server setup, agent installation on Windows, Linux, and macOS.",
+    "headline": "NetShield Documentation",
+    "subheadline": "Guides for installing and configuring the management server and agent on each endpoint.",
+    "sections": [
+      {
+        "title": "Installation guides",
+        "links": [
+          { "label": "Server setup",         "href": "docs/install/server",  "description": "Deploy the management server and access the dashboard." },
+          { "label": "Agent — Windows",      "href": "docs/install/windows", "description": "Install the NetShield agent on Windows endpoints." },
+          { "label": "Agent — Linux",        "href": "docs/install/linux",   "description": "Install the NetShield agent on Linux endpoints." },
+          { "label": "Agent — macOS",        "href": "docs/install/macos",   "description": "Install the NetShield agent on macOS endpoints." }
+        ]
+      },
+      {
+        "title": "Coming soon",
+        "links": [
+          { "label": "Configuration reference", "href": "docs/configuration", "description": "All config.json and server environment variables explained." },
+          { "label": "FAQ",                     "href": "docs/faq",           "description": "Answers to the most common questions." },
+          { "label": "Troubleshooting",         "href": "docs/troubleshooting","description": "Diagnosing connection issues, licence errors, and more." }
+        ]
+      }
+    ],
+    "coming_soon_badge": "Coming soon",
+    "server": {
+      "meta_title": "Server Setup",
+      "meta_description": "Step-by-step guide to deploying the NetShield management server and accessing the admin dashboard.",
+      "headline": "Setting up the management server",
+      "subheadline": "The NetShield management server is a self-hosted application you deploy on your own infrastructure. Follow these steps to get it running.",
+      "prereqs_title": "Before you begin",
+      "prereqs": [
+        "A server or VM running Linux (recommended) or Windows, reachable from your endpoints.",
+        "Python 3.10 or later.",
+        "PostgreSQL and Redis for production use, or SQLite for a simple test setup.",
+        "The NetShield server package you received after purchase."
+      ],
+      "steps": [
+        {
+          "number": "01",
+          "title": "Create your configuration file",
+          "body": "Copy the example configuration file to create your real one.",
+          "code": "cp .env.example .env"
+        },
+        {
+          "number": "02",
+          "title": "Install Python dependencies",
+          "body": "Run pip to install all required packages.",
+          "code": "pip install -r requirements.txt"
+        },
+        {
+          "number": "03",
+          "title": "Run database migrations",
+          "body": "Apply all database schema migrations before starting the server for the first time.",
+          "code": "alembic upgrade head"
+        },
+        {
+          "number": "04",
+          "title": "Start the server",
+          "body": "Launch the server from the server/ directory.",
+          "code": "python -m app.main"
+        },
+        {
+          "number": "05",
+          "title": "Note your admin password",
+          "body": "On the very first start, NetShield creates an admin account automatically. If the ADMIN_PASSWORD environment variable is not set, a random password is generated and printed once in the server logs. Copy it immediately — it will not be shown again.",
+          "code": null
+        },
+        {
+          "number": "06",
+          "title": "Log in to the dashboard",
+          "body": "Open a browser and navigate to your server address. The default port is 8000.",
+          "code": "http://your-server:8000/dashboard"
+        }
+      ],
+      "next_title": "Next step",
+      "next_body": "With the server running, install the agent on each machine you want to protect.",
+      "next_links": [
+        { "label": "Agent — Windows", "href": "docs/install/windows" },
+        { "label": "Agent — Linux",   "href": "docs/install/linux"   },
+        { "label": "Agent — macOS",   "href": "docs/install/macos"   }
+      ]
+    },
+    "agent_common": {
+      "prereqs_title": "Before you begin",
+      "config_title": "Configure the agent",
+      "config_intro": "Copy the example configuration file and fill in the three required fields.",
+      "config_copy_cmd": "cp config.json.example config.json",
+      "secret_key_warning_title": "Critical: secret_key must match the server",
+      "secret_key_warning_body": "The secret_key in config.json must be exactly the same value as the NETSHIELD_SECRET_KEY environment variable set on your management server. If they do not match, the server will reject all licence validations. This is the single most common setup mistake.",
+      "fields_title": "Required fields in config.json",
+      "fields": [
+        { "key": "license_key",  "desc": "Your licence key, received by email after purchase on Payhip." },
+        { "key": "c2_server",    "desc": "The full URL of your management server API, e.g. https://your-server.example.com/api/v1" },
+        { "key": "secret_key",   "desc": "Must exactly match NETSHIELD_SECRET_KEY on the server. See warning above." }
+      ],
+      "optional_fields_title": "Optional fields",
+      "optional_fields": [
+        { "key": "auto_isolate", "desc": "Set to true to isolate automatically when a threat is detected. Disabled (false) by default." }
+      ],
+      "verify_title": "Verify the agent is connected",
+      "verify_body": "Open the management dashboard. The agent should appear with a status of Active within a few seconds of starting.",
+      "smartscreen_note": "On Windows, SmartScreen may display an \"Unknown Publisher\" warning the first time you run the agent.",
+      "smartscreen_link": "See the Trust & Security page for instructions."
+    },
+    "windows": {
+      "meta_title": "Agent Setup — Windows",
+      "meta_description": "Install the NetShield agent on Windows endpoints: configure config.json, run install.bat or netshield.exe, verify connection to the dashboard.",
+      "headline": "Installing the agent on Windows",
+      "prereqs": [
+        "The NetShield agent package for Windows (netshield.exe and install.bat).",
+        "The management server already running and reachable from this machine.",
+        "Your licence key and server URL to hand.",
+        "Administrator privileges on the machine."
+      ],
+      "run_title": "Start the agent",
+      "run_options": [
+        {
+          "label": "Option A — Install as a Windows service (recommended)",
+          "body": "Run install.bat as Administrator. This registers the agent as a Windows service that starts automatically at boot.",
+          "code": "install.bat"
+        },
+        {
+          "label": "Option B — Run directly from the command line",
+          "body": "Launch the executable directly. Useful for testing before committing to a service install.",
+          "code": "netshield.exe"
+        }
+      ]
+    },
+    "linux": {
+      "meta_title": "Agent Setup — Linux",
+      "meta_description": "Install the NetShield agent on Linux endpoints: configure config.json, run install.sh, verify connection to the dashboard.",
+      "headline": "Installing the agent on Linux",
+      "prereqs": [
+        "The NetShield agent package for Linux (netshield binary and install.sh).",
+        "The management server already running and reachable from this machine.",
+        "Your licence key and server URL to hand.",
+        "sudo or root access on the machine."
+      ],
+      "run_title": "Start the agent",
+      "run_options": [
+        {
+          "label": "Install as a service (recommended)",
+          "body": "Run install.sh to register the agent as a systemd service that starts automatically at boot.",
+          "code": "chmod +x install.sh && sudo ./install.sh"
+        }
+      ]
+    },
+    "macos": {
+      "meta_title": "Agent Setup — macOS",
+      "meta_description": "Install the NetShield agent on macOS endpoints: configure config.json, run install.sh, verify connection to the dashboard.",
+      "headline": "Installing the agent on macOS",
+      "prereqs": [
+        "The NetShield agent package for macOS (netshield binary and install.sh).",
+        "The management server already running and reachable from this machine.",
+        "Your licence key and server URL to hand.",
+        "Administrator account on the machine."
+      ],
+      "run_title": "Start the agent",
+      "run_options": [
+        {
+          "label": "Install as a launch daemon (recommended)",
+          "body": "Run install.sh to register the agent with launchd so it starts automatically at login.",
+          "code": "chmod +x install.sh && sudo ./install.sh"
+        }
+      ]
+    }
+  },
   "nav": {
     "features": "Features",
     "how_it_works": "How It Works",
