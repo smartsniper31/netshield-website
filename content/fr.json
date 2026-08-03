@@ -237,7 +237,7 @@
       "prereqs_title": "Avant de commencer",
       "prereqs": [
         "Un serveur ou une VM sous Linux (recommandé) ou Windows, accessible depuis vos endpoints.",
-        "Python 3.10 ou supérieur.",
+        "Python 3.11 (la version utilisée dans le Dockerfile officiel).",
         "PostgreSQL et Redis pour un usage en production, ou SQLite pour un test simple.",
         "Le package serveur NetShield reçu après l'achat."
       ],
