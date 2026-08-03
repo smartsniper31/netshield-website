@@ -220,7 +220,7 @@
         ]
       },
       {
-        "title": "Coming soon",
+        "title": "Reference & Support",
         "links": [
           { "label": "Configuration reference", "href": "docs/configuration", "description": "All config.json and server environment variables explained." },
           { "label": "FAQ",                     "href": "docs/faq",           "description": "Answers to the most common questions." },
@@ -370,6 +370,90 @@
           "code": "chmod +x install.sh && sudo ./install.sh"
         }
       ]
+    },
+    "configuration": {
+      "meta_title": "Configuration Reference",
+      "meta_description": "Complete reference for all NetShield agent and server configuration options: config.json fields and .env variables.",
+      "headline": "Configuration Reference",
+      "subheadline": "All configuration options for the NetShield agent and management server, with descriptions and defaults.",
+      "agent_title": "Agent — config.json",
+      "agent_fields": [
+        { "key": "license_key",  "required": true,  "default": null,   "desc": "Your licence key, received by email after purchase on Payhip." },
+        { "key": "c2_server",    "required": true,  "default": null,   "desc": "Full URL of the management server API. Example: https://your-server.example.com/api/v1" },
+        { "key": "secret_key",   "required": true,  "default": null,   "desc": "Must exactly match the NETSHIELD_SECRET_KEY variable on the server. Mismatches cause all licence validations to fail." },
+        { "key": "auto_isolate", "required": false, "default": "false", "desc": "If true, the machine is automatically isolated from the network when a suspicious process is detected. If false, the event is visible in the dashboard but isolation must be triggered manually." },
+        { "key": "log_level",    "required": false, "default": "\"info\"", "desc": "Verbosity of the agent log output. Accepted values: \"debug\", \"info\", \"warn\", \"error\"." }
+      ],
+      "server_title": "Server — .env",
+      "server_fields": [
+        { "key": "DATABASE_URL",          "required": true,  "default": null,  "desc": "PostgreSQL connection string for production, or a SQLite path for simple/test deployments." },
+        { "key": "NETSHIELD_SECRET_KEY",  "required": true,  "default": null,  "desc": "Must exactly match secret_key in every connected agent's config.json." },
+        { "key": "PAYHIP_SECRET_KEY",     "required": true,  "default": null,  "desc": "Used to verify the authenticity of Payhip webhooks, enabling automatic licence creation on purchase." },
+        { "key": "ADMIN_PASSWORD",        "required": false, "default": "generated",  "desc": "If absent, a random password is generated at first start and printed once in the server logs." },
+        { "key": "CORS_ORIGINS",          "required": false, "default": "[]",  "desc": "JSON array of origins allowed to call the API. Example: [\"https://my-domain.com\"]. Must be valid JSON." }
+      ],
+      "required_label": "Required",
+      "optional_label": "Optional",
+      "default_label": "Default",
+      "secret_key_warning": "The secret_key (agent) and NETSHIELD_SECRET_KEY (server) values must be identical character-for-character. This is the most common configuration mistake."
+    },
+    "faq": {
+      "meta_title": "FAQ",
+      "meta_description": "Frequently asked questions about NetShield: agent not connecting, lost admin password, multi-machine licences, and more.",
+      "headline": "Frequently Asked Questions",
+      "items": [
+        {
+          "q": "Why does my agent not appear in the dashboard after installation?",
+          "a": "The most common cause is a mismatch between secret_key in the agent's config.json and the NETSHIELD_SECRET_KEY variable on the server. Both values must be exactly identical, character for character. Double-check both files and restart the agent after correcting."
+        },
+        {
+          "q": "The server refuses to start — what should I do?",
+          "a": "Check the CORS_ORIGINS value in your .env file. It must be a valid JSON array, for example [\"https://my-domain.com\"]. An invalid format (missing quotes, trailing comma, plain text) will prevent the server from starting."
+        },
+        {
+          "q": "I lost the admin password generated at first start. How do I reset it?",
+          "a": "Restart the server with the ADMIN_PASSWORD environment variable explicitly set to your new password. The server will use that value instead of generating a new random one."
+        },
+        {
+          "q": "Can I install the agent on multiple machines with the same licence?",
+          "a": "Yes — up to the agent limit of your licence tier. The exact number depends on the plan you purchased. The dashboard shows how many agents are currently active against your limit."
+        },
+        {
+          "q": "Windows shows a warning when I launch the agent. Is it dangerous?",
+          "a": "No. This is a Windows SmartScreen warning that appears for any executable without a code-signing certificate. See the Trust & Security page for the exact steps to proceed."
+        },
+        {
+          "q": "What happens if my Payhip subscription is cancelled?",
+          "a": "The licence is deactivated on the server. Existing agents lose authorisation to operate at their next validation check. Renewing the subscription reactivates the licence."
+        }
+      ],
+      "trust_link_label": "Trust & Security page"
+    },
+    "troubleshooting": {
+      "meta_title": "Troubleshooting",
+      "meta_description": "Diagnose and fix the most common NetShield issues: invalid licence, server not starting, agent connected but dashboard empty.",
+      "headline": "Troubleshooting",
+      "subheadline": "Step-by-step solutions for the most common issues encountered during installation and operation.",
+      "issues": [
+        {
+          "symptom": "\"Invalid licence\" error when the agent starts",
+          "cause": "The licence key may have been copied incorrectly from the Payhip confirmation email.",
+          "solution": "Open config.json and verify that license_key exactly matches the key in your email — no leading or trailing spaces, no missing characters. Copy-paste directly from the email rather than retyping."
+        },
+        {
+          "symptom": "Server stops immediately after starting",
+          "cause": "The server cannot reach the database at the address specified in DATABASE_URL.",
+          "solution": "Verify that PostgreSQL (or SQLite) is running and accessible at the connection string in your .env file. Check for typos in the host, port, database name, or credentials. For PostgreSQL, confirm the server is accepting connections from the host where NetShield is running."
+        },
+        {
+          "symptom": "The agent connects but the dashboard remains empty",
+          "cause": "The c2_server URL in config.json may not be pointing at the correct endpoint.",
+          "solution": "Check that c2_server ends exactly with /api/v1. Example: https://your-server.example.com/api/v1. Missing the path suffix is the most common cause of this symptom."
+        }
+      ],
+      "symptom_label": "Symptom",
+      "cause_label": "Probable cause",
+      "solution_label": "Solution"
     }
   },
   "nav": {

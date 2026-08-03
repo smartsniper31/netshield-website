@@ -220,7 +220,7 @@
         ]
       },
       {
-        "title": "À venir",
+        "title": "Référence & Assistance",
         "links": [
           { "label": "Référence de configuration", "href": "docs/configuration",  "description": "Toutes les variables config.json et les variables d'environnement serveur expliquées." },
           { "label": "FAQ",                        "href": "docs/faq",            "description": "Réponses aux questions les plus fréquentes." },
@@ -370,6 +370,90 @@
           "code": "chmod +x install.sh && sudo ./install.sh"
         }
       ]
+    },
+    "configuration": {
+      "meta_title": "Référence de configuration",
+      "meta_description": "Référence complète de toutes les options de configuration de l'agent et du serveur NetShield : champs config.json et variables .env.",
+      "headline": "Référence de configuration",
+      "subheadline": "Toutes les options de configuration pour l'agent NetShield et le serveur de gestion, avec descriptions et valeurs par défaut.",
+      "agent_title": "Agent — config.json",
+      "agent_fields": [
+        { "key": "license_key",  "required": true,  "default": null,       "desc": "Votre clé de licence, reçue par email après l'achat sur Payhip." },
+        { "key": "c2_server",    "required": true,  "default": null,       "desc": "URL complète de l'API du serveur de gestion. Exemple : https://votre-serveur.example.com/api/v1" },
+        { "key": "secret_key",   "required": true,  "default": null,       "desc": "Doit être exactement identique à la variable NETSHIELD_SECRET_KEY côté serveur. Toute différence entraîne le rejet de toutes les validations de licence." },
+        { "key": "auto_isolate", "required": false, "default": "false",    "desc": "Si true, la machine est automatiquement isolée du réseau dès qu'un processus suspect est détecté. Si false, l'événement est visible dans le dashboard mais l'isolation doit être déclenchée manuellement." },
+        { "key": "log_level",    "required": false, "default": "\"info\"", "desc": "Niveau de détail des journaux de l'agent. Valeurs acceptées : \"debug\", \"info\", \"warn\", \"error\"." }
+      ],
+      "server_title": "Serveur — .env",
+      "server_fields": [
+        { "key": "DATABASE_URL",         "required": true,  "default": null,        "desc": "Chaîne de connexion PostgreSQL pour la production, ou chemin SQLite pour un déploiement simple/test." },
+        { "key": "NETSHIELD_SECRET_KEY", "required": true,  "default": null,        "desc": "Doit être exactement identique à secret_key dans le config.json de chaque agent connecté." },
+        { "key": "PAYHIP_SECRET_KEY",    "required": true,  "default": null,        "desc": "Utilisée pour vérifier l'authenticité des webhooks Payhip, permettant la création automatique de licences à l'achat." },
+        { "key": "ADMIN_PASSWORD",       "required": false, "default": "généré",    "desc": "Si absent, un mot de passe aléatoire est généré au premier démarrage et affiché une seule fois dans les logs du serveur." },
+        { "key": "CORS_ORIGINS",         "required": false, "default": "[]",        "desc": "Tableau JSON des origines autorisées à appeler l'API. Exemple : [\"https://mon-domaine.com\"]. Doit être du JSON valide." }
+      ],
+      "required_label": "Obligatoire",
+      "optional_label": "Optionnel",
+      "default_label": "Défaut",
+      "secret_key_warning": "Les valeurs de secret_key (agent) et NETSHIELD_SECRET_KEY (serveur) doivent être identiques caractère par caractère. C'est l'erreur de configuration la plus fréquente."
+    },
+    "faq": {
+      "meta_title": "FAQ",
+      "meta_description": "Questions fréquentes sur NetShield : agent qui ne se connecte pas, mot de passe admin perdu, licences multi-machines, et plus.",
+      "headline": "Questions fréquentes",
+      "items": [
+        {
+          "q": "Pourquoi mon agent n'apparaît pas dans le dashboard après l'installation ?",
+          "a": "La cause la plus fréquente est une différence entre secret_key dans config.json de l'agent et la variable NETSHIELD_SECRET_KEY côté serveur. Les deux valeurs doivent être absolument identiques, caractère par caractère. Vérifiez les deux fichiers et redémarrez l'agent après correction."
+        },
+        {
+          "q": "Le serveur refuse de démarrer — que faire ?",
+          "a": "Vérifiez la valeur de CORS_ORIGINS dans votre fichier .env. Elle doit être un tableau JSON valide, par exemple [\"https://mon-domaine.com\"]. Un format invalide (guillemets manquants, virgule finale, texte brut) empêchera le serveur de démarrer."
+        },
+        {
+          "q": "J'ai perdu le mot de passe admin généré au premier démarrage. Comment le réinitialiser ?",
+          "a": "Redémarrez le serveur avec la variable d'environnement ADMIN_PASSWORD explicitement définie avec votre nouveau mot de passe. Le serveur utilisera cette valeur au lieu d'en générer une nouvelle aléatoirement."
+        },
+        {
+          "q": "Puis-je installer l'agent sur plusieurs machines avec la même licence ?",
+          "a": "Oui — jusqu'à la limite d'agents de votre palier de licence. Le nombre exact dépend de la formule achetée. Le dashboard indique combien d'agents sont actuellement actifs par rapport à votre limite."
+        },
+        {
+          "q": "Windows affiche un avertissement au lancement de l'agent. Est-ce dangereux ?",
+          "a": "Non. Il s'agit d'un avertissement Windows SmartScreen qui apparaît pour tout exécutable sans certificat de signature de code. Consultez la page Confiance & Sécurité pour les étapes exactes."
+        },
+        {
+          "q": "Que se passe-t-il si mon abonnement Payhip est annulé ?",
+          "a": "La licence est désactivée côté serveur. Les agents existants perdent l'autorisation de fonctionner au prochain contrôle de validation. Renouveler l'abonnement réactive la licence."
+        }
+      ],
+      "trust_link_label": "page Confiance & Sécurité"
+    },
+    "troubleshooting": {
+      "meta_title": "Dépannage",
+      "meta_description": "Diagnostiquez et corrigez les problèmes les plus courants avec NetShield : licence invalide, serveur qui ne démarre pas, agent connecté mais dashboard vide.",
+      "headline": "Dépannage",
+      "subheadline": "Solutions étape par étape pour les problèmes les plus fréquents rencontrés lors de l'installation et de l'utilisation.",
+      "issues": [
+        {
+          "symptom": "Erreur « Licence invalide » au démarrage de l'agent",
+          "cause": "La clé de licence a peut-être été copiée incorrectement depuis l'email de confirmation Payhip.",
+          "solution": "Ouvrez config.json et vérifiez que license_key correspond exactement à la clé dans votre email — sans espace en début ou fin, sans caractère manquant. Copiez-collez directement depuis l'email plutôt que de ressaisir manuellement."
+        },
+        {
+          "symptom": "Le serveur s'arrête immédiatement après le démarrage",
+          "cause": "Le serveur ne peut pas accéder à la base de données à l'adresse spécifiée dans DATABASE_URL.",
+          "solution": "Vérifiez que PostgreSQL (ou SQLite) est en cours d'exécution et accessible à la chaîne de connexion dans votre fichier .env. Contrôlez les fautes de frappe dans l'hôte, le port, le nom de la base ou les identifiants. Pour PostgreSQL, confirmez que le serveur accepte les connexions depuis la machine où NetShield tourne."
+        },
+        {
+          "symptom": "L'agent se connecte mais le dashboard reste vide",
+          "cause": "L'URL c2_server dans config.json ne pointe peut-être pas vers le bon endpoint.",
+          "solution": "Vérifiez que c2_server se termine exactement par /api/v1. Exemple : https://votre-serveur.example.com/api/v1. L'absence de ce suffixe est la cause la plus fréquente de ce symptôme."
+        }
+      ],
+      "symptom_label": "Symptôme",
+      "cause_label": "Cause probable",
+      "solution_label": "Solution"
     }
   },
   "nav": {
