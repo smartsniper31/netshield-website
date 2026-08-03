@@ -140,9 +140,74 @@
     "cta_features": "Voir toutes les fonctionnalités",
     "cta_pricing": "Voir les tarifs"
   },
+  "trust": {
+    "meta_title": "Confiance & Sécurité",
+    "meta_description": "Réponses transparentes aux questions de sécurité les plus fréquentes sur NetShield : avertissement Windows SmartScreen, résultats VirusTotal, authentification du dashboard et chiffrement.",
+    "headline": "Des réponses honnêtes à vos questions de sécurité.",
+    "subheadline": "NetShield manipule les règles réseau et les tables de processus — ce qui amène certains moteurs antivirus et l'OS lui-même à l'examiner avec précaution. Voici exactement ce qui se passe et pourquoi.",
+    "sections": [
+      {
+        "icon": "AlertTriangle",
+        "title": "Pourquoi Windows affiche-t-il un avertissement « Éditeur inconnu » au premier lancement ?",
+        "body": "NetShield est actuellement distribué sans certificat de signature de code. C'est une décision commerciale délibérée pendant la phase de démarrage du produit — pas un signe que le binaire est dangereux. Windows SmartScreen affiche cet avertissement pour tout exécutable non signé, quelle que soit son utilisation réelle.",
+        "steps_label": "Marche à suivre :",
+        "steps": [
+          "Cliquez sur « Informations complémentaires » dans la boîte de dialogue SmartScreen.",
+          "Puis cliquez sur « Exécuter quand même » pour lancer l'agent."
+        ],
+        "note": "Un certificat de signature de code est prévu dans la feuille de route et sera obtenu dès que les premières ventes le permettront financièrement. Aucune date n'est communiquée."
+      },
+      {
+        "icon": "ScanLine",
+        "title": "Résultats du scan VirusTotal",
+        "body": "Le binaire final de l'agent NetShield a été soumis à VirusTotal. Résultat : 4 détections sur 71 moteurs antivirus testés.",
+        "vt_result": "4 / 71 moteurs ont signalé",
+        "vt_detail": "Les quatre détections sont des identifiants génériques ou heuristiques — aucun ne nomme une famille de malware connue :",
+        "vt_engines": [
+          {
+            "engine": "McAfee",
+            "flag": "TR/634B54DCF650",
+            "note": "Identifiant générique basé sur le hash du fichier, pas une menace nommée."
+          },
+          {
+            "engine": "CrowdStrike",
+            "flag": "Win/malicious_confidence_60%(D)",
+            "note": "Score de confiance heuristique, pas un nom de famille de malware."
+          },
+          {
+            "engine": "Symantec",
+            "flag": "ML.Attribute.HighConfidence",
+            "note": "« ML » = machine learning. Un attribut comportemental générique, pas une menace nommée."
+          },
+          {
+            "engine": "Bkav",
+            "flag": "W32.Malware.B571C7EF",
+            "note": "Identifiant générique basé sur le hash."
+          }
+        ],
+        "vt_negative": "Windows Defender, Kaspersky, ESET, BitDefender, Avast, Malwarebytes, Sophos, Trend Micro : tous négatifs.",
+        "vt_context": "Ce profil de détection est typique de tout binaire non signé qui manipule les interfaces réseau ou les tables de processus — indépendamment de son usage réel. NetShield fait les deux par conception."
+      },
+      {
+        "icon": "Lock",
+        "title": "Authentification du dashboard",
+        "body": "L'accès au dashboard de gestion NetShield requiert un mot de passe. Les sessions sont gérées via un cookie sécurisé. Aucun accès non authentifié aux contrôles des agents ou aux journaux d'événements n'est possible."
+      },
+      {
+        "icon": "Globe",
+        "title": "Chiffrement des communications",
+        "body": "Le chiffrement du trafic entre les agents et le serveur de gestion dépend de la façon dont vous déployez le serveur. Si vous placez le serveur derrière un reverse proxy avec un certificat TLS valide (recommandé), toutes les communications seront chiffrées en HTTPS. Le code de l'agent ne force pas TLS — c'est une responsabilité de déploiement.",
+        "note": "Nous recommandons de toujours faire tourner le serveur de gestion derrière HTTPS en production."
+      }
+    ],
+    "cta_title": "Vous avez encore des questions ?",
+    "cta_body": "Contactez-nous via la page d'assistance.",
+    "cta_support": "Contacter l'assistance"
+  },
   "nav": {
     "features": "Fonctionnalités",
     "how_it_works": "Comment ça fonctionne",
+    "trust": "Confiance & Sécurité",
     "pricing": "Tarifs",
     "docs": "Documentation",
     "support": "Assistance"

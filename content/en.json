@@ -140,9 +140,74 @@
     "cta_features": "See all features",
     "cta_pricing": "See Pricing"
   },
+  "trust": {
+    "meta_title": "Trust & Security",
+    "meta_description": "Transparent answers to the most common security questions about NetShield: Windows SmartScreen warning, VirusTotal scan results, dashboard authentication, and encryption.",
+    "headline": "Honest answers to your security questions.",
+    "subheadline": "NetShield manipulates network rules and process tables — which means antivirus engines and OS warnings treat it cautiously. Here is exactly what is happening and why.",
+    "sections": [
+      {
+        "icon": "AlertTriangle",
+        "title": "Why does Windows show an \"Unknown Publisher\" warning?",
+        "body": "NetShield is currently distributed without a code-signing certificate. This is a deliberate commercial decision while the product is in its early stage — not a sign that the binary is dangerous. Windows SmartScreen displays this warning for any unsigned executable, regardless of its actual purpose.",
+        "steps_label": "How to proceed:",
+        "steps": [
+          "Click \"More info\" (Informations complémentaires) on the SmartScreen dialog.",
+          "Then click \"Run anyway\" (Exécuter quand même) to launch the agent."
+        ],
+        "note": "A code-signing certificate is on the roadmap and will be obtained as soon as early sales make it financially viable. No date is committed."
+      },
+      {
+        "icon": "ScanLine",
+        "title": "VirusTotal scan results",
+        "body": "The final NetShield agent binary was submitted to VirusTotal. Result: 4 detections out of 71 antivirus engines tested.",
+        "vt_result": "4 / 71 engines flagged",
+        "vt_detail": "All four detections are generic or heuristic identifiers — none names a known malware family:",
+        "vt_engines": [
+          {
+            "engine": "McAfee",
+            "flag": "TR/634B54DCF650",
+            "note": "A file-hash-based generic identifier, not a named threat."
+          },
+          {
+            "engine": "CrowdStrike",
+            "flag": "Win/malicious_confidence_60%(D)",
+            "note": "A heuristic confidence score, not a malware family name."
+          },
+          {
+            "engine": "Symantec",
+            "flag": "ML.Attribute.HighConfidence",
+            "note": "\"ML\" = machine learning signal. A generic behavioural attribute, not a named threat."
+          },
+          {
+            "engine": "Bkav",
+            "flag": "W32.Malware.B571C7EF",
+            "note": "A generic hash-based identifier."
+          }
+        ],
+        "vt_negative": "Windows Defender, Kaspersky, ESET, BitDefender, Avast, Malwarebytes, Sophos, Trend Micro: all returned negative.",
+        "vt_context": "This detection profile is typical for any unsigned binary that manipulates network interfaces or process tables — regardless of its actual intent. NetShield does both by design."
+      },
+      {
+        "icon": "Lock",
+        "title": "Dashboard authentication",
+        "body": "Access to the NetShield management dashboard requires a password. Sessions are managed via a secure cookie. No unauthenticated access to agent controls or event logs is possible."
+      },
+      {
+        "icon": "Globe",
+        "title": "Communications encryption",
+        "body": "Whether the traffic between agents and the management server is encrypted depends on how you deploy the server. If you place the server behind a reverse proxy with a valid TLS certificate (recommended), all communications will be encrypted over HTTPS. The agent code itself does not enforce TLS — this is a deployment responsibility.",
+        "note": "We recommend always running the management server behind HTTPS in production."
+      }
+    ],
+    "cta_title": "Still have questions?",
+    "cta_body": "Reach out via the support page.",
+    "cta_support": "Contact Support"
+  },
   "nav": {
     "features": "Features",
     "how_it_works": "How It Works",
+    "trust": "Trust & Security",
     "pricing": "Pricing",
     "docs": "Docs",
     "support": "Support"
