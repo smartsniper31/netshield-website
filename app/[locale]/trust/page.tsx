@@ -222,7 +222,7 @@ export default async function TrustPage({ params }: TrustPageProps) {
           </h2>
           <p className="mb-8 text-muted-foreground">{t.cta_body}</p>
           <Button asChild size="lg" className="gap-2">
-            <Link href={`/${locale}/support`}>
+            <Link href={`/${locale}/support/contact`}>
               {t.cta_support}
               <ChevronRight className="h-4 w-4" aria-hidden="true" />
             </Link>
