@@ -456,6 +456,30 @@
       "solution_label": "Solution"
     }
   },
+  "contact": {
+    "meta_title": "Contacter l'assistance",
+    "meta_description": "Envoyez un message à l'équipe NetShield. Nous vous répondrons dans les meilleurs délais.",
+    "headline": "Nous contacter",
+    "subheadline": "Remplissez le formulaire ci-dessous et nous vous répondrons rapidement.",
+    "name_label": "Nom",
+    "name_placeholder": "Votre nom",
+    "email_label": "Adresse email",
+    "email_placeholder": "vous@exemple.com",
+    "message_label": "Message",
+    "message_placeholder": "Décrivez votre question ou votre problème...",
+    "submit_label": "Envoyer le message",
+    "sending_label": "Envoi en cours...",
+    "success_title": "Message envoyé",
+    "success_body": "Merci — nous avons bien reçu votre message et vous répondrons dans les meilleurs délais.",
+    "error_validation": "Veuillez vérifier le formulaire — certains champs sont invalides.",
+    "error_email_invalid": "Veuillez saisir une adresse email valide.",
+    "error_message_short": "Le message doit contenir au moins 10 caractères.",
+    "error_message_long": "Le message ne peut pas dépasser 2000 caractères.",
+    "error_rate_limit": "Veuillez patienter quelques minutes avant d'envoyer un nouveau message.",
+    "error_server": "Une erreur est survenue de notre côté. Veuillez réessayer dans un instant.",
+    "error_name_required": "Le nom est requis.",
+    "error_message_required": "Le message est requis."
+  },
   "nav": {
     "features": "Fonctionnalités",
     "how_it_works": "Comment ça fonctionne",
