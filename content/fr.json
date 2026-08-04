@@ -390,7 +390,7 @@
         { "key": "NETSHIELD_SECRET_KEY", "required": true,  "default": null,        "desc": "Doit être exactement identique à secret_key dans le config.json de chaque agent connecté." },
         { "key": "PAYHIP_SECRET_KEY",    "required": true,  "default": null,        "desc": "Utilisée pour vérifier l'authenticité des webhooks Payhip, permettant la création automatique de licences à l'achat." },
         { "key": "ADMIN_PASSWORD",       "required": false, "default": "généré",    "desc": "Si absent, un mot de passe aléatoire est généré au premier démarrage et affiché une seule fois dans les logs du serveur." },
-        { "key": "CORS_ORIGINS",         "required": false, "default": "[]",        "desc": "Tableau JSON des origines autorisées à appeler l'API. Exemple : [\"https://mon-domaine.com\"]. Doit être du JSON valide." }
+        { "key": "CORS_ORIGINS",         "required": false, "default": "localhost:8000, localhost:3000",        "desc": "Tableau JSON des origines autorisées à appeler l'API. Par défaut limité à localhost. Ajoutez votre domaine de production : [\"https://mon-domaine.com\"]. Doit être du JSON valide." }
       ],
       "required_label": "Obligatoire",
       "optional_label": "Optionnel",
