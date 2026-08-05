@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ShieldCheck, Zap, Eye, ArrowRight, ChevronRight } from "lucide-react";
 import { getDictionary, locales, type Locale } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
+import { TrackedLink } from "@/components/TrackedLink";
 
 interface HomePageProps {
   params: Promise<{ locale: string }>;
@@ -68,13 +69,25 @@ export default async function HomePage({ params }: HomePageProps) {
           {/* CTAs */}
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button asChild size="lg" className="gap-2">
-              <Link href={`/${locale}/pricing`}>
+              <TrackedLink
+                href={`/${locale}/pricing`}
+                eventType="cta_click_pricing"
+                page="home"
+                locale={locale as Locale}
+              >
                 {h.cta_primary}
                 <ChevronRight className="h-4 w-4" aria-hidden="true" />
-              </Link>
+              </TrackedLink>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <Link href={`/${locale}/docs`}>{h.cta_secondary}</Link>
+              <TrackedLink
+                href={`/${locale}/docs`}
+                eventType="cta_click_docs"
+                page="home"
+                locale={locale as Locale}
+              >
+                {h.cta_secondary}
+              </TrackedLink>
             </Button>
           </div>
         </div>
@@ -174,10 +187,15 @@ export default async function HomePage({ params }: HomePageProps) {
           </h2>
           <p className="mb-8 text-muted-foreground">{h.cta_section_body}</p>
           <Button asChild size="lg" className="gap-2">
-            <Link href={`/${locale}/pricing`}>
+            <TrackedLink
+              href={`/${locale}/pricing`}
+              eventType="cta_click_pricing_bottom"
+              page="home"
+              locale={locale as Locale}
+            >
               {h.cta_primary}
               <ChevronRight className="h-4 w-4" aria-hidden="true" />
-            </Link>
+            </TrackedLink>
           </Button>
         </div>
       </section>

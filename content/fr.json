@@ -488,6 +488,20 @@
     "docs": "Documentation",
     "support": "Assistance"
   },
+  "newsletter": {
+    "title": "Restez informé",
+    "body": "Soyez notifié des nouvelles fonctionnalités et mises à jour. Aucun spam — désinscription à tout moment.",
+    "placeholder": "votre@email.com",
+    "consent_label": "J'accepte de recevoir des emails de mise à jour de produit de la part de NetShield.",
+    "submit_label": "S'inscrire",
+    "submitting_label": "Inscription...",
+    "success_title": "Inscription confirmée",
+    "success_body": "Merci — vous recevrez un email lorsqu'il y a quelque chose qui vaut la peine d'être partagé.",
+    "error_email_invalid": "Veuillez saisir une adresse email valide.",
+    "error_consent_required": "Veuillez cocher la case pour donner votre consentement.",
+    "error_already_subscribed": "Cette adresse email est déjà inscrite.",
+    "error_server": "Une erreur est survenue. Veuillez réessayer."
+  },
   "footer": {
     "tagline": "La sécurité réseau conçue pour les équipes modernes.",
     "copyright": "© 2026 NetShield. Tous droits réservés."

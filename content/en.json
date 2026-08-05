@@ -488,6 +488,20 @@
     "docs": "Docs",
     "support": "Support"
   },
+  "newsletter": {
+    "title": "Stay informed",
+    "body": "Get notified about new features and product updates. No spam — unsubscribe any time.",
+    "placeholder": "your@email.com",
+    "consent_label": "I agree to receive product update emails from NetShield.",
+    "submit_label": "Subscribe",
+    "submitting_label": "Subscribing...",
+    "success_title": "You're subscribed",
+    "success_body": "Thank you — you'll hear from us when there's something worth sharing.",
+    "error_email_invalid": "Please enter a valid email address.",
+    "error_consent_required": "Please check the box to give your consent.",
+    "error_already_subscribed": "This email is already subscribed.",
+    "error_server": "Something went wrong. Please try again."
+  },
   "footer": {
     "tagline": "Network security built for modern teams.",
     "copyright": "© 2026 NetShield. All rights reserved."
